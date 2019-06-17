@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class CocktailCategories extends Component {
     
-    renderCocktailCategories(category) {
-        return <li key={category}>{category}</li>
+    renderCocktailCategories = cocktailCategories => {
+        return (
+            <ul>
+                {cocktailCategories.map(cocktailCategory => (
+                    <li key={cocktailCategory}>
+                        <Link to={`/category/${cocktailCategory}`}>{cocktailCategory}</Link>
+                    </li>  
+                ))}
+            </ul>
+        )
     }
 
     render () {
@@ -11,11 +20,11 @@ export default class CocktailCategories extends Component {
         return (
             <div className="cocktails-categories">
 
-                <h1>Cocktails Categories</h1>
+                <h1>Cocktail Categories</h1>
 
                 { !cocktailCategories && 'Loading...'}
 
-                { cocktailCategories && <ul>{ cocktailCategories.map(this.renderCocktailCategories) }</ul>}
+                { cocktailCategories && this.renderCocktailCategories(cocktailCategories)}
 
             </div>
         )

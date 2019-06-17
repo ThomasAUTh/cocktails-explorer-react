@@ -3,7 +3,7 @@ import * as request from 'superagent'
 import CocktailCategories from './CocktailCategories';
 
 export default class CocktailCategoriesContainer extends Component {
-state = { cocktailCategories: [] }
+state = { cocktailCategories: null }
 
     componentDidMount () {
         request
