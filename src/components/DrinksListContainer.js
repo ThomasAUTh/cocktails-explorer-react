@@ -17,7 +17,8 @@ export default class DrinksListContainer extends Component {
       };
     
     componentDidMount() {
-        const category = this.props.match.params.category;
+        const category = this.props.match.params.category
+        console.log('category', category)
         request
           .get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`)
           .then(response => this.updateCocktailDrinks(response.body.drinks))

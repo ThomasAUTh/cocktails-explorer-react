@@ -6,11 +6,16 @@ export default class CocktailCategories extends Component {
     renderCocktailCategories = cocktailCategories => {
         return (
             <ul>
-                {cocktailCategories.map(cocktailCategory => (
-                    <li key={cocktailCategory}>
-                        <Link to={`/category/${cocktailCategory}`}>{cocktailCategory}</Link>
-                    </li>  
-                ))}
+                {cocktailCategories.map(cocktailCategory => {
+                    const formatCategory = encodeURIComponent(cocktailCategory.split(" ").join("_"))
+                    return (
+
+                        <li key={formatCategory}>
+                            <Link to={`/category/${formatCategory}`}>{cocktailCategory}</Link>
+                        </li>
+                    )
+                })}
+        
             </ul>
         )
     }
